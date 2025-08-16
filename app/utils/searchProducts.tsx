@@ -1,7 +1,7 @@
-  import type { TProduct,TProductsSearchParam } from "../types/types";
+  import type { TProduct } from "../types/types";
 
-  export async function  searchProducts(products:TProduct[],searchParams:TProductsSearchParam) {
-    const searchQuery= await searchParams
+  export  function  searchProducts(products:TProduct[],query:{search:string}) {
+    const searchQuery=  query
 
     if (searchQuery?.search && searchQuery?.search.length > 0) {
       return products.filter(

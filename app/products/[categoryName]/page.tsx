@@ -11,6 +11,7 @@ export default async function CategoryProductsPage({
   searchParams,
 }: CategoryProductsPagePropstype) {
   const categoryNameParam: string | undefined = (await params)?.categoryName;
+  const searchQuery=await searchParams
   if (!categoryNameParam) return;
   const response: Response = await fetch(
     `https://fakestoreapi.com/products/category/${categoryNameParam}`
@@ -18,14 +19,18 @@ export default async function CategoryProductsPage({
   if (!response) throw new Error("there was an error fetching from a category");
   const result: TProduct[] = await response.json();
 
-  const finalResultBasedOnSearchParam = await searchProducts(
+  const finalResultBasedOnSearchParam =  searchProducts(
     result,
-    searchParams
+    searchQuery
   );
   return (
     <>
       {finalResultBasedOnSearchParam.map((product: TProduct) => (
-        <Card key={product.id} product={product} />
+        <Card
+          key={product.id}
+          product={product}
+          productImg="/placeholder.png"
+        />
       ))}
     </>
   );
