@@ -1,5 +1,4 @@
 import { TProduct, TProductsSearchParam } from "../types/types";
-import GridView from "../components/GridView";
 import Card from "../components/Card";
 import { searchProducts } from "../utils/searchProducts";
 export default async function ProductsPage({

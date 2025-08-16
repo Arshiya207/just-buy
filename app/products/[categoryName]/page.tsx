@@ -1,6 +1,5 @@
 import type { TProduct } from "@/app/types/types";
 import Card from "@/app/components/Card";
-import GridView from "@/app/components/GridView";
 import { searchProducts } from "@/app/utils/searchProducts";
 type CategoryProductsPagePropstype = {
   params: Promise<{ categoryName: string }>;
